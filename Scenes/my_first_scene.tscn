@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://drp4muc5u6qch"]
+
+[ext_resource type="Texture2D" uid="uid://w1vm0ib8gkl7" path="res://icon.svg" id="1_cydre"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon-Parent" type="Sprite2D" parent="."]
+position = Vector2(403.625, 317)
+scale = Vector2(2.03711, 1.96484)
+texture = ExtResource("1_cydre")
+
+[node name="Icon-Child" type="Sprite2D" parent="Icon-Parent"]
+position = Vector2(114.929, -69.7256)
+scale = Vector2(0.554499, 0.567553)
+texture = ExtResource("1_cydre")
