@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://drp4muc5u6qch"]
+[gd_scene load_steps=8 format=3 uid="uid://drp4muc5u6qch"]
 
 [ext_resource type="Texture2D" uid="uid://w1vm0ib8gkl7" path="res://icon.svg" id="1_cydre"]
 [ext_resource type="Script" path="res://Scripts/Rotate.gd" id="2_7dvwv"]
 [ext_resource type="Script" path="res://Scripts/character_controls.gd" id="3_y7v48"]
+[ext_resource type="Texture2D" uid="uid://bpqubc4vwcmwn" path="res://Art/crate.png" id="4_1ja1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yobjb"]
 size = Vector2(127.614, 129.445)
@@ -10,34 +11,57 @@ size = Vector2(127.614, 129.445)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvxoh"]
 size = Vector2(124, 125)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqt20"]
+size = Vector2(85.071, 20)
+
 [node name="Node2D" type="Node2D"]
-position = Vector2(234, 126)
 script = ExtResource("2_7dvwv")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(413, 336)
 scale = Vector2(1.00302, 1.05064)
 script = ExtResource("3_y7v48")
-movement_coefficient = 2.0
+movement_coefficient = 12.585
 
 [node name="ParentLogo" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_cydre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-3.05176e-05, 3.05176e-05)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yobjb")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(641, 329)
-gravity_scale = 1.66533e-16
-lock_rotation = true
-linear_damp = 30.0
-
-[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("1_cydre")
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["object"]]
+position = Vector2(675, 304)
+scale = Vector2(0.996893, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_gvxoh")
+
+[node name="Crate" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("4_1ja1e")
+
+[node name="Floor" type="RigidBody2D" parent="."]
+position = Vector2(534, 519)
+gravity_scale = 0.0
+freeze = true
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -34.0
+offset_right = -226.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(24.8, 3.542)
+color = Color(0.478431, 0.054902, 0.447059, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0.5, 0)
+scale = Vector2(5.79516, 3.49028)
+shape = SubResource("RectangleShape2D_nqt20")

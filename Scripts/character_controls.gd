@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var pre_collision_velocity
 	var additional_velocity = Vector2(0,0)
 	if Input.is_action_pressed("move_right"):
@@ -28,12 +28,13 @@ func _process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision : KinematicCollision2D = get_slide_collision(i)
-		var collision_normal = collision.get_normal()
-		if collision_normal.x < 0 and pre_collision_velocity.x > 0:
-			collision_normal.x = -collision_normal.x
-		if collision_normal.y < 0 and pre_collision_velocity.y > 0:
-			collision_normal.y = -collision_normal.y
-		collision.get_collider().apply_impulse(pre_collision_velocity * collision_normal)
+		if collision.get_collider().is_in_group("object"):
+			var collision_normal = collision.get_normal()
+			if collision_normal.x < 0 and pre_collision_velocity.x > 0:
+				collision_normal.x = -collision_normal.x
+			if collision_normal.y < 0 and pre_collision_velocity.y > 0:
+				collision_normal.y = -collision_normal.y
+			collision.get_collider().apply_force(pre_collision_velocity * collision_normal)
 
 		
 
