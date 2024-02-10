@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="My First Godot Project"
-run/main_scene="res://Scenes/my_first_scene.tscn"
+config/name="Lit Games HW 5 \"Objectians\""
+run/main_scene="res://Scenes/hw5.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 config/icon="res://icon.svg"
