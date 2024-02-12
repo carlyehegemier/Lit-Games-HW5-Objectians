@@ -9,7 +9,6 @@
 script = ExtResource("1_6drm6")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_txtmd")]
-collision_mask = 3
 movement_speed = 150.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -35,3 +34,5 @@ Change some of its settings to make it behave."
 
 [node name="Crate" parent="." instance=ExtResource("4_5fnyh")]
 position = Vector2(456, 384)
+collision_layer = 2
+collision_mask = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://krm5k3qbjil6"]
+[gd_scene load_steps=9 format=3 uid="uid://krm5k3qbjil6"]
 
 [ext_resource type="Script" path="res://Scripts/Rotate.gd" id="1_amvju"]
 [ext_resource type="Script" path="res://Scripts/CharacterMovement.gd" id="2_p8r5b"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cj1vyr6kvr67l" path="res://Scenes/crate.tscn" id="4_onmak"]
 [ext_resource type="Texture2D" uid="uid://duqvx7htykro6" path="res://Art/tree.png" id="5_gwuyb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4tdo"]
-size = Vector2(53.8982, 646.778)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt32a"]
+size = Vector2(99.6989, 92.3247)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcihl"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_amvju")
@@ -23,6 +25,10 @@ movement_speed = 150.0
 [node name="ParentLogo" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.747742, 0.713851)
 texture = ExtResource("3_apj2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.997009, -0.475891)
+shape = SubResource("RectangleShape2D_pt32a")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_goot7")
@@ -61,8 +67,8 @@ texture = ExtResource("5_gwuyb")
 [node name="StaticBody2D" type="StaticBody2D" parent="Tree"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/StaticBody2D"]
-position = Vector2(26.9489, 107.797)
-shape = SubResource("RectangleShape2D_n4tdo")
+position = Vector2(3.36864, -218.961)
+shape = SubResource("CircleShape2D_kcihl")
 
 [node name="Crate3" parent="." instance=ExtResource("4_onmak")]
 position = Vector2(392, 296)
